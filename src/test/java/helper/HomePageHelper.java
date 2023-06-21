@@ -26,7 +26,7 @@ public class HomePageHelper{
      * */
     public void selectingItem(String category, String item){
         homePage.clickLink(category);
-        registerSelectingItem(item);
+        //registerSelectingItem(item);
         homePage.clickLink(item);
     }
     /**
