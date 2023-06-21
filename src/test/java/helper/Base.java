@@ -33,6 +33,7 @@ public class Base {
     }
     public void edgeDriverConnection() {
         System.setProperty("selenide.browser", "edge");
+        Configuration.baseUrl = "https://www.demoblaze.com/index.html";
         open("https://www.demoblaze.com/index.html");
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
