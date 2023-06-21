@@ -1,5 +1,6 @@
 package helper;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,11 +24,17 @@ public class Base {
      * maximize the windows.
      * */
     public void chromeDriverConnection() {
+        System.setProperty("selenide.browser", "edge");
         open("https://www.demoblaze.com/index.html");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         //With Selenium:
         //System.setProperty("webdriver.chrome.driver", "/Users/claudia.madrid/Documents/UITesting/Drivers/chromedriver_mac_arm64/chromedriver");
         //this.driver = new ChromeDriver();
+    }
+    public void edgeDriverConnection() {
+        System.setProperty("selenide.browser", "edge");
+        open("https://www.demoblaze.com/index.html");
+        WebDriverRunner.getWebDriver().manage().window().maximize();
     }
     /**
      * This method starts connexion with the ChromeDriver
@@ -37,9 +44,9 @@ public class Base {
     public void setUp() {
 
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        chromeDriverConnection();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
+        edgeDriverConnection();
     }
     /**
      * This method starts connexion with the ChromeDriver
