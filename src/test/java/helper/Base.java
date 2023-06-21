@@ -2,6 +2,7 @@ package helper;
 
 import com.codeborne.selenide.WebDriverRunner;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import static com.codeborne.selenide.Selenide.open;
@@ -34,6 +35,10 @@ public class Base {
      * */
     @BeforeMethod
     public void setUp() {
+
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         chromeDriverConnection();
     }
     /**
