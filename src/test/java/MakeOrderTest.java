@@ -56,4 +56,8 @@ public class MakeOrderTest extends Base {
     Assert.assertEquals(order.getCreditCarNumber(), formMade.getCreditCard());
     Assert.assertEquals(order.getTotal(), formMade.getTotal());
   }
+  @Test
+  public void test2(){
+    System.out.println("Hello word");
+  }
 }
