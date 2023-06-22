@@ -6,6 +6,9 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -33,9 +36,10 @@ public class Base {
     }
     public void edgeDriverConnection() {
         System.setProperty("selenide.browser", "edge");
-        Configuration.timeout = 20000;
         Configuration.baseUrl = "https://www.demoblaze.com/index.html";
         open("https://www.demoblaze.com/index.html");
+        //WebDriverRunner.getWebDriver().manage().window().maximize();
+        WebDriverRunner.getWebDriver().manage().timeouts().implicitlyWait(20L, TimeUnit.MINUTES);
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
     /**
