@@ -4,6 +4,8 @@ import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -17,7 +19,7 @@ public class Base {
   public Base() {}
   /** This method gets the ChromeDriver in the HomePage website, and maximize the windows. */
   public void chromeDriverConnection() {
-    System.setProperty("selenide.browser", "edge");
+    //System.setProperty("selenide.browser", "chr");
     open("https://www.demoblaze.com/index.html");
     WebDriverRunner.getWebDriver().manage().window().maximize();
     // With Selenium:
@@ -37,9 +39,9 @@ public class Base {
   @BeforeMethod
   public void setUp() {
 
-    // ChromeOptions options = new ChromeOptions();
-    // options.addArguments("--remote-allow-origins=*");
-    edgeDriverConnection();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--remote-allow-origins=*");
+    chromeDriverConnection();
   }
   /** This method starts connexion with the ChromeDriver after every test finish. */
   @AfterMethod
