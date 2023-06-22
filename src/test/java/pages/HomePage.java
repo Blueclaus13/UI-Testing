@@ -5,6 +5,7 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,8 +57,7 @@ public class HomePage{
      * @return ElementsCollection on the Homepage by specific Category.
      * */
     public ElementsCollection getCARDS_IN_HOMEPAGE(){
-//        WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOf())
+
         return CARDS_IN_HOMEPAGE = $$("#tbodyid > div");
     }
 

@@ -36,11 +36,11 @@ public class Base {
     }
     public void edgeDriverConnection() {
         System.setProperty("selenide.browser", "edge");
-        Configuration.baseUrl = "https://www.demoblaze.com/index.html";
         open("https://www.demoblaze.com/index.html");
         //WebDriverRunner.getWebDriver().manage().window().maximize();
         WebDriverRunner.getWebDriver().manage().timeouts().implicitlyWait(20L, TimeUnit.MINUTES);
         WebDriverRunner.getWebDriver().manage().window().maximize();
+
     }
     /**
      * This method starts connexion with the ChromeDriver

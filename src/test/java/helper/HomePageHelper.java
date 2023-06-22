@@ -1,11 +1,19 @@
 package helper;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.example.models.Product;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.codeborne.selenide.Selenide.$;
 
 /**
  * This class contains methods to help the HomePageClass.
@@ -26,7 +34,9 @@ public class HomePageHelper{
      * */
     public void selectingItem(String category, String item){
         homePage.clickLink(category);
-        //registerSelectingItem(item);
+        WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf($(By.linkText(item))));
+        registerSelectingItem(item);
         homePage.clickLink(item);
     }
     /**
